@@ -113,6 +113,8 @@ function relative_post_the_date($d = '', $before = '', $after = '', $display_ago
 ### Function: Display Post Relative Time (Seconds Ago/Minutes Ago/Hours Ago)
 add_filter('the_time', 'relative_post_time', 999);
 function relative_post_time($current_timeformat, $display_ago_only = false) {
+	// JAX - hard-code always display only date ago. Will probably need a more flexible method in the future.
+	$display_ago_only = true;
 	global $post;
 	$current_time = current_time('timestamp');
 	$date_today_time = gmdate('j-n-Y H:i:s', $current_time);
